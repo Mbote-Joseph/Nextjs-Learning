@@ -1,0 +1,141 @@
+# Next.js
+
+## What is Next.js?
+
+- Next.js is a React framework for building web applications.
+- When building an application with React alone, it's not feasible to create a fully-featured application ready for production.
+- React is a library for building user interfaces.
+- You need to make decisions about other features such as routing, data fetching and more.
+
+- Next.js is a React framework that uses React for building user interfaces.
+- It provides additional features that enable you to build production-ready applications.
+- These features include:
+  - routing
+  - optimized rendering
+  - data fetching
+  - building
+  - compiling
+  - etc
+- You don't need to install additional packages as Next.js provides everything you need.
+- Next.js as a framework has opinions and conventions that should be followed to implement these features.
+
+## Why learn Next.js?
+
+- Next.js simplifies the process of building a web application for production.
+  - routing
+  - API routes
+  - rendering - leads to better SEO
+  - Data fetching
+  - Styling
+  - Optimization
+  - Dev and prod build system
+
+## React Server Components (RSC)
+
+- React Server Components is a new architecture introduced by the React team in version 18 which was quickly embraced by Next.js
+- The architecture introduces a new way of creating React components, splitting them into two types:
+  - Server components
+  - Client components
+
+- Server components:
+  - In Next.js, all components are Server components by default.
+  - They have the ability to run tasks like reading files or fetching data from a database.
+  - However, they don't have the ability to use hooks or handle user interactions.
+
+- Client components
+  - To create a Client component, it's necessary to add "use client" at the top of the component file.
+  - Client components can't perform tasks like reading files, but they have the ability to use hooks and manage interactions.
+
+## React Server Components and Routing
+
+- We'll explore examples where we use server components that await certain actions to finalize before rendering content on the screen.
+- We'll also see examples where we use client components to leverage hooks from the routing module.
+
+## Routing
+
+- Next.js has a file-system based routing mechanism.
+- URL paths that users can access in the browser are defined by files and folders in your codebase.
+
+### Routing conventions
+
+- All routes must be placed inside the app folder
+- Every file that corresponds to a route must be named page.js or page.tsx
+- Every folder corresponds to a path segment in the browser URL
+
+#### Scenarios
+
+- File Based Routing
+- We need 2 additional routes
+- Nested routes
+- Dynamic Routes - Dynamic routes segment
+- Nested Dynamic routes
+- Catch-all segments
+
+#### Not found page
+
+- create a file not-found.tsx
+
+### Private folders
+
+- A private folder indicates that it is a private implementation detail and should not be considered by the routing system.
+- The folder and all its sub folders are excluded from routing.
+- Prefix the folder name with an underscore
+- They are used to separate the UI logic from routing logic.
+- For consistently organizing internal files across a project.
+- For sorting and grouping files in code editors.
+- And finally, for avoiding potential naming conflicts with future Next.js file conventions.
+- If you want to include an underscore in URL segments, you can prefix the folder name with "%5F," which is the URL-encoded form of an underscore.
+
+### Route Groups
+
+- Allows us to logically group our routes and project files without affecting the URL path structure.
+- Let's implement authentication routes.
+  - Register
+  - Login
+  - Forgot Password
+
+## Layout
+
+- A page is UI that is unique to a route.
+- A layout is UI that is shared between multiple pages in the app.
+
+### How to Create Layouts
+
+- You can define a layout by default exporting a React component from a layout.js or layout.tsx file.
+- That component should accept a children prop that will be populated with a child page during rendering.
+
+#### Scenarios for  Layout
+
+- Layout
+- Nested Layout
+- Group Layout
+
+### Route Group Layout
+
+- Route Group uses:
+  - To organize your project in a manner that doesn't affect the URL
+  - To selectively apply a layout to certain segments while leaving others unchanged.
+
+## Routing metadata
+
+- Ensuring proper search engine optimization (SEO) is crucial for increasing visibility and attracting users.
+- Next.js introduced the Metadata API which allow you to define metadata for each page.
+- Metadata ensure accurate and relevant information is displayed when your pages are shared or indexed.
+
+### Configuring Metadata
+
+- Export a static metadata object
+- Export a dynamic generateMetadata function
+
+#### Metadata rules
+
+- Both layout.tsx and page.tsx files can export metadata. If defined in a layout, it applies to all pages in that layout, but if defined in a page, it applies only to that page.
+- Metadata is read in order, from the root level down to the final page level.
+- When there's metadata in multiple places for the same route, they get combined, but page metadata will replace layout metadata if they have the same properties.
+
+### title Metadata
+
+- The title field's primary purpose is to define the document title.
+- It can be either a string or an object.
+
+## Navigation
