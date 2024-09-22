@@ -1,6 +1,5 @@
 import { Metadata } from "next"
 import Header from "./header"
-import Footer from "./footer"
 
 export const metadata: Metadata = {
   title: {
@@ -23,8 +22,6 @@ export default function RootLayout({
         <Header />
 
         {children}
-
-        <Footer/>
         
         </body>
     </html>

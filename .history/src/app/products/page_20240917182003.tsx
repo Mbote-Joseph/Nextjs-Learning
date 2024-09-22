@@ -3,7 +3,6 @@ import { useRouter } from "next/navigation"
 
 export default function ProductList(){
     const router = useRouter();
-    const productId = 100;
 
     return (
         <>
@@ -12,7 +11,6 @@ export default function ProductList(){
         <p onClick={()=>router.push("./products/1")}>Product 1</p>
         <p onClick={()=>router.push("./products/2")}>Product 2</p>
         <p onClick={()=>router.push("./products/3")}>Product 3</p>
-        <p onClick={()=>router.push((`./products/${productId}`))}> Product 100</p>
         </>
     )
 }

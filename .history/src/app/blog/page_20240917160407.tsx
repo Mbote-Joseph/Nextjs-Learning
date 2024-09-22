@@ -2,7 +2,7 @@ import { Metadata } from "next"
 
 export const metadata: Metadata = {
     // title: {
-        // absolute: "Blog" // The template in layout.tsx will be ignored
+        // absolute: "Blog"
     // }
     title: "Blog",  
 }
